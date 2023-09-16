@@ -14,3 +14,5 @@ jobs:
 
       - name: Print Message
         run: echo "Hello, GitHub Actions!"
+     
+      - uses: hashicorp/setup-terraform@v2
