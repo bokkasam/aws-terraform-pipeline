@@ -12,9 +12,13 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
      
-      - uses: hashicorp/setup-terraform@v2
+      - name: Install Terraform
+        uses: hashicorp/setup-terraform@v2
+        with:
+            terraform_version: 1.1.7
 
-      - name: Print Message
+      - name: Auth to AWS
         run: |
             echo "Hello, GitHub Actions!"
-            terraform --version
+            export AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }}
+            export AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}
