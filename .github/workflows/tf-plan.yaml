@@ -11,8 +11,10 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
-
-      - name: Print Message
-        run: echo "Hello, GitHub Actions!"
      
       - uses: hashicorp/setup-terraform@v2
+
+      - name: Print Message
+        run: |
+            echo "Hello, GitHub Actions!"
+            terraform --version
